@@ -1,0 +1,23 @@
+apply plugin: 'com.dataductus.nso'
+//apply plugin: 'java'
+
+//nso {
+  //  basePackage = 'com.dataductus.learn'
+    //nsoPath = System.getenv('NCS_DIR')
+    //nsoPath = '/opt/nso/ncs-4.4'
+//}
+
+//dependencies {
+    //compile fileTree(dir: "$nso.nsoPath/java/jar", include: ['*.jar'])
+    //compile fileTree(dir: "src/java/lib", include: ['*.jar'])
+//}
+
+buildscript {
+    repositories {
+        flatDir dirs: "./buildLibs"
+        //mavenLocal()
+    }
+    dependencies {
+        classpath 'com.dataductus.gradle:NsoGradlePlugin:1.0.4'
+    }
+}

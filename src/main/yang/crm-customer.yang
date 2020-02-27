@@ -1,0 +1,31 @@
+module crm-customer {
+  namespace "http://com.dataductus/broadband/common/crm";
+  prefix crm;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+
+  import tailf-common {
+    prefix tailf;
+  }
+
+  container customers {
+    list customer {
+        key name;
+        leaf name {
+            type string;
+        }
+        leaf customer-number {
+            type string;
+        }
+        leaf customer-type {
+            type enumeration {
+                  enum private;
+                  enum company;
+                  enum partner;
+            }
+        }
+    }
+  }
+}
