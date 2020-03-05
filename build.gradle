@@ -1,23 +1,38 @@
-apply plugin: 'com.dataductus.nso'
-//apply plugin: 'java'
-
-//nso {
-  //  basePackage = 'com.dataductus.learn'
-    //nsoPath = System.getenv('NCS_DIR')
-    //nsoPath = '/opt/nso/ncs-4.4'
-//}
-
-//dependencies {
-    //compile fileTree(dir: "$nso.nsoPath/java/jar", include: ['*.jar'])
-    //compile fileTree(dir: "src/java/lib", include: ['*.jar'])
-//}
-
 buildscript {
     repositories {
         flatDir dirs: "./buildLibs"
-        //mavenLocal()
+        //flatDir dirs: "/home/magnus/p/NsoGradlePlugin/build/libs"
+        //mavenCentral() // Kotlin
     }
     dependencies {
-        classpath 'com.dataductus.gradle:NsoGradlePlugin:1.0.4'
+        classpath 'com.dataductus.gradle:NsoGradlePlugin:1.0.5'
+        //classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61' // Kotlin
     }
 }
+
+//plugins {
+//    id 'com.dataductus.nso' version '1.0.5'
+//    id 'java'
+//}
+apply plugin: 'com.dataductus.nso'
+apply plugin: 'java'
+//apply plugin: id 'org.jetbrains.kotlin.<...>' version '1.3.61'
+
+nso {
+    basePackage = 'com.dataductus.learn'
+    nsoPath = System.getenv('NCS_DIR')
+    //nsoPath = '/home/magnus/env/ncs43'
+    jvmProject = true
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile fileTree(dir: "$nso.nsoPath/java/jar", include: ['*.jar'])
+    //compile fileTree(dir: "src/java/lib", include: ['*.jar'])
+    // https://mvnrepository.com/artifact/junit/junit
+    //testCompile group: 'junit', name: 'junit', version: '4.13'
+}
+
