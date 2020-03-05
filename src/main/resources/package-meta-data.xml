@@ -4,6 +4,10 @@
   <description>Common CRM plus Sports</description>
   <ncs-min-version>4.3</ncs-min-version>
 
-  <!-- It's possible to add more components to the -->
-  <!-- same package, multiple services, data providers etc -->
+  <component>
+    <name>register-person-component</name>
+    <callback>
+      <java-class-name>com.dataductus.learn.RegisterPersonRFS</java-class-name>
+    </callback>
+  </component>
 </ncs-package>
