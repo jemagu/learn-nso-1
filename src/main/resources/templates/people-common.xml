@@ -1,0 +1,9 @@
+<config-template xmlns="http://tail-f.com/ns/config/1.0">
+  <people xmlns="http://com.dataductus/people/common">
+    <person>
+      <id>{$ID}</id>
+      <givenname>{$GIVEN_NAME}</givenname>
+      <surname>{$SURNAME}</surname>
+    </person>
+  </people>
+</config-template>

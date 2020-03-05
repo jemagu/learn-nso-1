@@ -1,0 +1,12 @@
+<config-template xmlns="http://tail-f.com/ns/config/1.0">
+  <noble xmlns="http://com.dataductus/people/noble">
+    <family>
+      <name>{$SURNAME}</name>
+    </family>
+    <person>
+      <id>{$ID}</id>
+      <givenname>{$GIVEN_NAME}</givenname>
+      <family-name>{$SURNAME}</family-name>
+    </person>
+  </noble>
+</config-template>

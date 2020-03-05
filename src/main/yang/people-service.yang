@@ -1,0 +1,40 @@
+module people-service {
+  namespace "http://com.dataductus/people/service";
+  prefix register;
+
+  import tailf-common {
+    prefix tailf;
+  }
+
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+  container register {
+    list person {
+        uses ncs:service-data;
+        ncs:servicepoint "register-person-servicepoint";
+
+        key id;
+        leaf id {
+            type string;
+            mandatory true;
+        }
+        leaf givenname {
+            type string;
+            mandatory true;
+        }
+        leaf surname {
+            type string;
+            mandatory true;
+        }
+        leaf class {
+            type enumeration {
+                  enum noble;
+                  enum common;
+            }
+            mandatory true;
+        }
+    }
+  }
+}
