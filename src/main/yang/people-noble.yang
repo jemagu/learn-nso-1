@@ -1,0 +1,55 @@
+module people-noble {
+    namespace "http://com.dataductus/people/noble";
+    prefix noble;
+
+    import tailf-common {
+        prefix tailf;
+    }
+
+    import tailf-ncs {
+        prefix ncs;
+    }
+
+    container noble {
+        list family {
+            key name;
+            leaf name {
+                type string;
+                mandatory true;
+            }
+            leaf number {
+                type uint16;
+            }
+        }
+        list person {
+
+            key id;
+            leaf id {
+                type string;
+                mandatory true;
+            }
+            leaf givenname {
+                type string;
+                mandatory true;
+            }
+            leaf family-name {
+                type leafref {
+                    path "/noble/family/name";
+                }
+                mandatory true;
+            }
+            leaf gender {
+                type enumeration {
+                    enum female;
+                    enum male;
+                    enum other;
+                }
+            }
+            leaf shoe-size {
+                type uint8 {
+                    range "35..52";
+                }
+            }
+        }
+    }
+}

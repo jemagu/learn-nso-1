@@ -1,0 +1,43 @@
+module people-common {
+  namespace "http://com.dataductus/people/common";
+  prefix people;
+
+  import tailf-common {
+    prefix tailf;
+  }
+
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+  container people {
+    list person {
+
+        key id;
+        leaf id {
+            type string;
+            mandatory true;
+        }
+        leaf givenname {
+            type string;
+            mandatory true;
+        }
+        leaf surname {
+            type string;
+            mandatory true;
+        }
+        leaf gender {
+            type enumeration {
+                  enum female;
+                  enum male;
+                  enum other;
+            }
+        }
+        leaf shoe-size {
+            type uint8 {
+                range "35..52";
+            }
+        }
+    }
+  }
+}
